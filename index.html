@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Holly Iong — Luxury Retail Systems Architect</title>
+  <meta name="description" content="Holly Iong designs human-centric systems for luxury retail. 54% repeat rate, 76% CRM growth. Frameworks for clienteling, omnichannel & team performance.">
+  <meta name="keywords" content="Holly Iong, luxury retail, clienteling, CRM, omnichannel, retail systems, people development, future of luxury">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FFFFFF;
+      color: #1d1d1f;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Apple-like design tokens */
+    :root {
+      --white: #ffffff;
+      --bg-light: #f5f5f7;
+      --blue-primary: #0071e3;
+      --blue-hover: #005bb5;
+      --grey-text: #6e6e73;
+      --grey-border: #e8e8ed;
+      --dark-bg: #1d1d1f;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+      --shadow-lift: 0 20px 35px -12px rgba(0,0,0,0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 1.8rem; }
+    }
+
+    .section-caption {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--blue-primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* Navigation – concise, strategic */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(20px);
+      border-bottom: 0.5px solid rgba(0,0,0,0.05);
+      z-index: 100;
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #1d1d1f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--grey-text);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-primary);
+    }
+
+    @media (max-width: 700px) {
+      .nav-links { gap: 1.2rem; }
+      .nav-container { flex-direction: column; gap: 0.8rem; }
+    }
+
+    /* Hero – Attract */
+    .hero {
+      padding: 100px 0 80px;
+      background: linear-gradient(145deg, #fff 0%, #fafafd 100%);
+    }
+
+    .hero-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,113,227,0.08);
+      color: var(--blue-primary);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 40px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-lead {
+      font-size: 1.25rem;
+      color: var(--grey-text);
+      max-width: 680px;
+      margin: 1.2rem auto 2rem;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--blue-primary);
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--grey-text);
+    }
+
+    .btn-primary {
+      background: var(--blue-primary);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      transition: all 0.25s;
+    }
+    .btn-primary:hover {
+      background: var(--blue-hover);
+      transform: scale(1.02);
+    }
+    .btn-outline {
+      border: 1px solid #d2d2d6;
+      background: transparent;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #1d1d1f;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      border-color: var(--blue-primary);
+      color: var(--blue-primary);
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 0;
+      border-bottom: 1px solid var(--grey-border);
+    }
+
+    /* Empower – Value Grid */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .value-card {
+      background: var(--bg-light);
+      border-radius: 28px;
+      padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lift);
+    }
+    .value-icon {
+      font-size: 2rem;
+      color: var(--blue-primary);
+      margin-bottom: 1.2rem;
+    }
+
+    /* Validate – Systems + Stats */
+    .validate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .stats-panel {
+      background: var(--bg-light);
+      border-radius: 32px;
+      padding: 2rem;
+    }
+    .metric {
+      margin: 1.5rem 0;
+      border-left: 3px solid var(--blue-primary);
+      padding-left: 1rem;
+    }
+    .metric strong {
+      font-size: 1.3rem;
+    }
+
+    /* Visions – Future of Luxury (3 unique visions) */
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .vision-card {
+      background: #ffffff;
+      border: 1px solid var(--grey-border);
+      border-radius: 28px;
+      padding: 1.8rem;
+      transition: all 0.2s;
+    }
+    .vision-card:hover {
+      border-color: var(--blue-primary);
+      box-shadow: var(--shadow-lift);
+    }
+    .vision-icon {
+      font-size: 2rem;
+      color: var(--blue-primary);
+      margin-bottom: 1rem;
+    }
+    .vision-tag {
+      font-size: 0.7rem;
+      color: var(--blue-primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Services – Convert (3 offers) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .service-card {
+      background: var(--bg-light);
+      border-radius: 28px;
+      padding: 2rem;
+    }
+    .price {
+      font-weight: 600;
+      color: var(--blue-primary);
+      margin: 1rem 0;
+    }
+
+    /* Intelligence / Newsletter + Product */
+    .newsletter-card {
+      background: var(--bg-light);
+      border-radius: 32px;
+      padding: 2.5rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .form-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .form-inline input {
+      padding: 12px 20px;
+      border-radius: 40px;
+      border: 1px solid #ddd;
+      font-size: 0.9rem;
+      min-width: 260px;
+    }
+    .form-inline button {
+      background: var(--blue-primary);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .product-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .product-card {
+      background: white;
+      border: 1px solid var(--grey-border);
+      border-radius: 24px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    /* Contact – High-ticket */
+    .contact-block {
+      background: var(--dark-bg);
+      color: white;
+      border-radius: 40px;
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .contact-block a {
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      margin-right: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.75rem;
+      color: var(--grey-text);
+    }
+
+    /* Motion */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 850px) {
+      .value-grid, .vision-grid, .services-grid, .validate-grid, .product-row {
+        grid-template-columns: 1fr;
+      }
+      .contact-block {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="logo">Holly Iong</div>
+    <div class="nav-links">
+      <a href="#vision">Futures</a>
+      <a href="#method">Method</a>
+      <a href="#systems">Evidence</a>
+      <a href="#offers">Offers</a>
+      <a href="#connect">Connect</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- ATTRACT: Hero -->
+  <div class="hero">
+    <div class="container hero-inner">
+      <div class="hero-badge">Luxury Retail Systems Architect</div>
+      <h1>Humanizing luxury<br>in a digital‑first world.</h1>
+      <div class="hero-lead">I help luxury brands and retail professionals integrate high‑touch service with modern systems — to build loyalty that lasts.</div>
+      <div class="stat-row">
+        <div class="stat-item"><div class="stat-number">54%</div><div class="stat-label">repeat purchase rate</div></div>
+        <div class="stat-item"><div class="stat-number">+76%</div><div class="stat-label">CRM revenue growth</div></div>
+        <div class="stat-item"><div class="stat-number">#1</div><div class="stat-label">market share (category)</div></div>
+      </div>
+      <div>
+        <a href="#offers" class="btn-primary">Explore frameworks →</a>
+        <a href="#connect" class="btn-outline" style="margin-left: 1rem;">Strategy audit</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMPOWER: Value Proposition (3 Pillars) -->
+  <section id="method">
+    <div class="container">
+      <div class="section-caption">Human‑centric methodology</div>
+      <h2>Where craft meets code.<br>Loyalty engineered, not hoped for.</h2>
+      <div class="value-grid">
+        <div class="value-card fade-up"><div class="value-icon"><i class="fas fa-users"></i></div><h3>People development</h3><p>Built 2 global “Brand Best Advisors” and a team contributing 17% of Global Service Stars. My 9‑box talent system turns potential into promotion.</p></div>
+        <div class="value-card fade-up"><div class="value-icon"><i class="fas fa-gem"></i></div><h3>Clienteling & CRM</h3><p>54% repeat rate, $1.9M annual CRM revenue. Hyper‑personalisation at scale – data‑backed systems that feel human.</p></div>
+        <div class="value-card fade-up"><div class="value-icon"><i class="fas fa-mobile-alt"></i></div><h3>Digital & omnichannel</h3><p>KOS teams from zero → $265K social commerce, 52% O2O conversion. Seamless online‑offline journeys.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALIDATE: Systems & Results + 3 Visions for Future of Luxury -->
+  <section id="systems">
+    <div class="container">
+      <div class="section-caption">Proven systems, measurable outcomes</div>
+      <div class="validate-grid">
+        <div>
+          <h2>Not just results.<br>Repeatable systems that sustain excellence.</h2>
+          <p style="color: var(--grey-text); margin-top: 1rem;">Every metric below comes from a framework — not luck. Designed for luxury retail resilience.</p>
+        </div>
+        <div class="stats-panel fade-up">
+          <div class="metric"><strong>+76% clienteling revenue</strong><br>Omnichannel social selling playbook (WeChat + RedNote).</div>
+          <div class="metric"><strong>$152K from 5 VIC events</strong><br>162 guests, 34% conversion using CRM segmentation.</div>
+          <div class="metric"><strong>54% repeat purchase rate</strong><br>Structured retention system with proactive re‑engagement.</div>
+        </div>
+      </div>
+
+      <!-- 3 Unique Visions for Future of Luxury (distinct, no duplication) -->
+      <div style="margin-top: 5rem;">
+        <div class="section-caption">Foresight • MBB‑inspired</div>
+        <h2>Three futures for luxury retail.<br>One architect to build them.</h2>
+        <div class="vision-grid" id="vision">
+          <div class="vision-card fade-up"><div class="vision-icon"><i class="fas fa-robot"></i></div><div class="vision-tag">Bain + Gartner</div><h3>The Empathetic Algorithm</h3><p>AI augments human connection — no replacement. Associates receive daily intelligence (“Client values sustainability – mention restoration”) while owning warmth. Technology for scale, humanity for loyalty.</p><p style="margin-top: 0.8rem; font-size:0.8rem; color:var(--blue-primary);">→ Holly’s edge: 54% repeat rate from data‑human symbiosis</p></div>
+          <div class="vision-card fade-up"><div class="vision-icon"><i class="fas fa-globe"></i></div><div class="vision-tag">BCG + McKinsey</div><h3>The Distributed Atelier</h3><p>Luxury escapes the store into everyday life: home styling, airport lounges, hotel suites, livestream salons. One unified inventory, invisible fulfillment.</p><p style="margin-top: 0.8rem; font-size:0.8rem; color:var(--blue-primary);">→ Holly’s edge: $265K KOS social commerce, 52% O2O</p></div>
+          <div class="vision-card fade-up"><div class="vision-icon"><i class="fas fa-leaf"></i></div><div class="vision-tag">McKinsey + Bain</div><h3>The Longevity Ledger</h3><p>Competition shifts from acquisition to retention. Digital passports, service subscriptions, and community currency – clients earn access through care, not just spend.</p><p style="margin-top: 0.8rem; font-size:0.8rem; color:var(--blue-primary);">→ Holly’s edge: engineered retention systems</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONVERT: Services (3 offers) + Productised tiers -->
+  <section id="offers">
+    <div class="container">
+      <div class="section-caption">Systematised offerings</div>
+      <h2>Three ways I accelerate your luxury retail career or business.</h2>
+      <div class="services-grid">
+        <div class="service-card fade-up"><i class="fas fa-graduation-cap" style="font-size:1.6rem; color:var(--blue-primary);"></i><h3>The Gateway</h3><p>Aspiring talent</p><ul style="margin-top: 0.8rem; list-style: none;"><li>✓ Luxury resume audit (recruiter lens)</li><li>✓ Interview & brand DNA simulation</li><li>✓ Digital guide: <em>“5 traits to enter luxury retail”</em></li></ul><div class="price">$47 → Guide</div></div>
+        <div class="service-card fade-up"><i class="fas fa-bolt" style="font-size:1.6rem; color:var(--blue-primary);"></i><h3>The Accelerator</h3><p>High‑performers</p><ul style="margin-top: 0.8rem; list-style: none;"><li>✓ VIC clienteling masterclass (scripts + CRM)</li><li>✓ Omnichannel social selling playbook</li><li>✓ LinkedIn personal branding for headhunters</li></ul><div class="price">$97 → Strategy audit</div></div>
+        <div class="service-card fade-up"><i class="fas fa-building" style="font-size:1.6rem; color:var(--blue-primary);"></i><h3>The Systems Architect</h3><p>Management / Brands</p><ul style="margin-top: 0.8rem; list-style: none;"><li>✓ People development system (9‑box, retention)</li><li>✓ Omnichannel SOP: online → offline → after‑sales</li><li>✓ Travel retail transformation consulting</li></ul><div class="price">Consulting — inquire</div></div>
+      </div>
+
+      <!-- Intelligence + Free Newsletter (top funnel) & Productised (middle) -->
+      <div class="newsletter-card fade-up" style="margin-top: 3rem;">
+        <i class="fas fa-envelope-open-text" style="font-size: 2rem; color: var(--blue-primary);"></i>
+        <h3 style="margin: 0.8rem 0;">Weekly luxury retail intelligence</h3>
+        <p>One insight, one case study, one tool — free.</p>
+        <form class="form-inline" action="#" method="post">
+          <input type="email" placeholder="Work email" required>
+          <button type="submit">Subscribe →</button>
+        </form>
+      </div>
+
+      <!-- Productised digital guides (middle tier) -->
+      <div class="product-row">
+        <div class="product-card fade-up"><i class="fas fa-file-alt" style="color: var(--blue-primary); font-size: 1.5rem;"></i><h3 style="margin: 0.5rem 0;">5 traits to enter luxury retail</h3><div class="price">$47</div><a href="#" class="btn-outline" style="padding: 6px 18px; font-size:0.8rem;">Download →</a></div>
+        <div class="product-card fade-up"><i class="fas fa-crown" style="color: var(--blue-primary); font-size: 1.5rem;"></i><h3 style="margin: 0.5rem 0;">VIC Clienteling Playbook</h3><div class="price">$97</div><a href="#" class="btn-outline" style="padding: 6px 18px; font-size:0.8rem;">Get playbook →</a></div>
+        <div class="product-card fade-up"><i class="fas fa-chart-line" style="color: var(--blue-primary); font-size: 1.5rem;"></i><h3 style="margin: 0.5rem 0;">KOS Social Selling Blueprint</h3><div class="price">$147</div><a href="#" class="btn-outline" style="padding: 6px 18px; font-size:0.8rem;">Buy blueprint →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- High-Ticket CTA & Connect (bottom funnel) -->
+  <section id="connect">
+    <div class="container">
+      <div class="contact-block fade-up">
+        <div>
+          <h3 style="color: white; margin-bottom: 0.5rem;">Architect your next chapter.</h3>
+          <p style="color: #b0b0b6;">Strategy audit | Systems consulting | Speaking</p>
+          <div style="margin-top: 1rem;">
+            <a href="mailto:holly@hollyiong.com">holly@hollyiong.com</a>
+            <a href="tel:+85368182957">+853 6818 2957</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <a href="#" class="btn-primary" style="background: var(--blue-primary);">Book a 30‑min strategy audit →</a>
+          <p style="font-size: 0.7rem; margin-top: 12px;">Limited spots monthly — for high‑performers & brand leaders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Holly Iong — Humanizing luxury in a digital‑first world. Systems, loyalty, foresight.</p>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for fade-up
+  const fadeElements = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+  fadeElements.forEach(el => observer.observe(el));
+
+  // Demo form handling
+  const forms = document.querySelectorAll('form');
+  forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('✨ Demo — newsletter integration will be active soon. Thank you.');
+    });
+  });
+
+  // CTA demo alerts for product links (avoid duplicates)
+  const productLinks = document.querySelectorAll('.product-card a, .service-card a, .contact-block a');
+  productLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (link.getAttribute('href') === '#') {
+        e.preventDefault();
+        alert('🔗 In production: checkout / Calendly booking flow.');
+      }
+    });
+  });
+</script>
+</body>
+</html>
